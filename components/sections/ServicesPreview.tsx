@@ -54,9 +54,6 @@ export function ServicesPreview() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           {/* Left Column: Heading + Selector Pills */}
           <div className="lg:col-span-5 pt-4">
-            <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/80 bg-blue-50/80 px-3.5 py-1 text-[11.5px] font-semibold text-brand-blue uppercase tracking-wider mb-3">
-              <span>01 // Core Disciplines &amp; Services</span>
-            </div>
             <h2 className="font-display text-[40px] sm:text-[46px] font-bold text-brand-charcoal tracking-tight mb-4">
               Services for
             </h2>

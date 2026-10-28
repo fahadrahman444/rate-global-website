@@ -51,13 +51,13 @@ const steps: ProcessStep[] = [
 
 export function ProcessSection() {
   return (
-    <section id="process" className="bg-[#F3F6FB] py-24 px-6 lg:px-12 border-t border-slate-200/80">
+    <section id="process" className="bg-[#F8FAFD] py-24 px-6 lg:px-12 border-t border-slate-100">
       <div className="mx-auto max-w-[1080px]">
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/80 bg-white px-3.5 py-1 text-[11.5px] font-semibold uppercase tracking-wider text-brand-blue mb-3 shadow-2xs">
-            <span>03 // 4-Step Sprint Roadmap</span>
+          <div className="text-[12.5px] font-semibold uppercase tracking-wider text-brand-blue mb-2.5">
+            How We Deliver
           </div>
           <h2 className="font-display text-[36px] sm:text-[44px] font-bold text-brand-charcoal tracking-tight leading-[1.15]">
             4-step sprint-driven engineering process.
