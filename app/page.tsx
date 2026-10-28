@@ -9,38 +9,38 @@ import { Footer } from "@/components/layout/Footer";
 
 export default function HomePage() {
   return (
-    <main className="py-6 sm:py-10 px-3 sm:px-6">
-      {/* Presentation Container framing the design */}
-      <div className="mx-auto max-w-[1200px] overflow-hidden rounded-[28px] bg-white shadow-2xl shadow-slate-300/60 border border-slate-200/80">
-        
-        {/* Atmospheric Hero Canvas */}
-        <div className="hero-canvas relative overflow-hidden pt-6 pb-20 lg:pb-28">
+    <main className="min-h-screen bg-slate-50/70 py-4 sm:py-8 px-3 sm:px-6 space-y-14 sm:space-y-20">
+      {/* 1. Hero Island — Floating Elevated Canvas */}
+      <div className="mx-auto max-w-[1180px]">
+        <div className="hero-canvas relative overflow-hidden rounded-[32px] bg-white pt-6 pb-16 lg:pb-24 shadow-sm ring-1 ring-slate-900/5 px-6 lg:px-10">
           {/* Architectural Grid Overlay */}
           <div
             className="hero-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_92%_85%_at_50%_45%,#000_70%,transparent_100%)]"
             aria-hidden="true"
           />
 
-          <div className="relative z-10 mx-auto max-w-[1080px] px-6 lg:px-10">
+          <div className="relative z-10 mx-auto max-w-[1080px]">
             <Navbar />
             <Hero />
             <PartnerLogos />
           </div>
         </div>
+      </div>
 
-        {/* Core Services Section */}
-        <ServicesPreview />
+      {/* 2. Core Services Island (Structural Bento Card) */}
+      <ServicesPreview />
 
-        {/* Selected Portfolio Case Studies (Teaser with Pathway) */}
-        <PortfolioSection maxItems={2} />
+      {/* 3. Selected Case Studies (The High-Contrast Inset Framed Island) */}
+      <PortfolioSection maxItems={2} variant="inset-dark" />
 
-        {/* 4-Step Engineering Delivery Process */}
-        <ProcessSection />
+      {/* 4. 4-Step Engineering Delivery Process (Floating Bento Step Cards) */}
+      <ProcessSection />
 
-        {/* Lead Inquiry & Contact Form */}
-        <ContactSection />
+      {/* 5. Lead Inquiry & Contact Form Island */}
+      <ContactSection />
 
-        {/* Company Footer */}
+      {/* 6. Company Footer */}
+      <div className="mx-auto max-w-[1140px] pb-6">
         <Footer />
       </div>
     </main>
