@@ -1,14 +1,14 @@
-# AGENTS.md — Rate Global Website
+# AGENTS.md — Rate Global Website Master Engineering Guide
 
 ## 1. Project Identity & Confirmed Tech Stack
 
 - **Project:** Rate Global Company Profile Website
 - **Repository:** `rate-global-website`
-- **Purpose:** Build a professional, responsive company website that showcases Rate Global's web development services, technical expertise, portfolio, and business contact options.
+- **Purpose:** Build a professional, high-performing company website showcasing Rate Global's web development services, technical expertise, portfolio, and contact options.
 - **Approved Tech Stack:**
   - **Framework:** Next.js (App Router)
   - **UI Library:** React
-  - **Language:** TypeScript
+  - **Language:** TypeScript (Strict)
   - **Styling:** Tailwind CSS
   - **Animations:** Framer Motion
 
@@ -19,257 +19,110 @@ The website must communicate credibility, technical competence, and business val
 
 ---
 
-## 2. Source of Truth
+## 2. Source of Truth Hierarchy
 
-Before implementing a feature, inspect the existing codebase and read the relevant project documentation.
+Before implementing any feature, inspect the existing codebase and read relevant documentation in this exact order:
 
-Follow these documents in order:
-1. `docs/SRS.md` — approved functional and non-functional requirements.
+1. `SRS.md` (or `docs/SRS.md`) — approved functional and non-functional requirements.
 2. `docs/PROJECT-CONTEXT.md` — confirmed company information and business constraints.
 3. `docs/DESIGN-SYSTEM.md` — visual design tokens and component standards.
 4. Existing application architecture and established coding conventions.
 
-If documents conflict, identify the conflict and ask for clarification when it affects scope, security, architecture, or business behavior.
-
-Never invent company facts, clients, testimonials, certifications, performance metrics, contact information, or project outcomes.
-
-Use clearly labeled placeholders when approved content is unavailable.
+**Integrity Rule:** Never invent company facts, clients, testimonials, certifications, performance metrics, contact information, or project outcomes. Use clearly labeled placeholders when approved content is unavailable.
 
 ---
 
-## 3. Mandatory Workflow
+## 3. Core Engineering Philosophy & Anti-Slop Quality Guard
 
-For every non-trivial task:
-1. Inspect the existing project structure and relevant files.
-2. Identify applicable requirements and skills.
-3. Summarize the intended change and implementation approach.
-4. Identify dependencies, risks, and affected components.
-5. Implement the smallest complete solution.
-6. Run the relevant lint, type-check, test, and build commands available in the project.
-7. Review the changes for regressions, accessibility, security, and responsiveness.
-8. Report changed files, verification results, and remaining issues.
+### Ponytail Minimalist Philosophy
+- **YAGNI (You Aren't Gonna Need It):** Never build speculative features or 50-line abstractions when a 5-line standard solution works.
+- **Reuse Aggressively:** Search for and leverage existing utilities and components before writing new ones.
+- **Minimal Diffs:** Keep changes targeted, surgical, and concise. The cleanest code is code you never have to write or maintain.
 
-For a small, low-risk change, use a proportionately lightweight workflow.
+### Anti-Slop Code Quality Guard
+- **No Dead Code:** Zero dead imports, unused variables, empty functions, or zombie commented-out code.
+- **Strict Typing:** No loose `any` types in TypeScript. Model domain data accurately.
+- **No Redundant Async:** Never use `async`/`await` on synchronous operations or wrap code in hollow `try-catch` blocks that just rethrow.
+- **Doc Integrity:** Preserve relevant existing documentation and inline comments during edits.
 
-Do not claim a test, build, or deployment succeeded unless it was actually executed and its result was checked.
-
----
-
-## 4. Repository and Architecture Rules
-
-- Preserve the existing framework and project architecture unless an approved change requires otherwise.
-- Inspect `package.json`, configuration files, and existing components before choosing tools.
-- Reuse existing components and utilities when appropriate.
-- Keep components focused on clear responsibilities.
-- Separate content, presentation, and business logic when it improves maintainability.
-- Use the project's existing routing and data-fetching conventions.
-- Avoid unnecessary dependencies and architectural complexity.
-- Do not duplicate components to solve problems that can be addressed through reusable patterns.
-- Do not rewrite unrelated files during a focused task.
-- Follow existing formatting and naming conventions.
-
-Do not assume a specific framework or library until it is confirmed by the repository or project owner.
+### Dual-Process Thinking (System 1 vs. System 2)
+- **System 1 (Intuitive & Fast):** Fast, automatic execution for trivial bug fixes, UI styling tweaks, and simple questions.
+- **System 2 (Deliberate & Analytical):** Structured step-by-step reasoning for architectural modifications, state management, form submissions, security, and race conditions. Always plan first and evaluate edge cases before executing.
 
 ---
 
-## 5. Design and User Experience Rules
+## 4. UI, Layout, & Animation Standards
 
-The website must feel like a professional web development company website, not a generic template.
-
-- Follow `docs/DESIGN-SYSTEM.md`.
-- Maintain consistent typography, spacing, colors, borders, and component states.
-- Use clear visual hierarchy and readable content widths.
-- Create responsive layouts for mobile, tablet, and desktop.
-- Prioritize the actual content and the user's journey.
-- Use meaningful whitespace and consistent alignment.
-- Avoid excessive gradients, glass effects, shadows, animation, and decorative elements.
-- Avoid generic layouts that repeat the same card grid across every section.
-- Do not use emojis as substitutes for professional interface icons.
-- Use authentic project screenshots and approved brand assets whenever available.
-- Provide loading, empty, error, hover, focus, and disabled states where applicable.
-- Respect reduced-motion preferences.
-- Do not introduce new design patterns without a clear reason.
+- **Use Framer Motion:** Rely on declarative `motion.div` or native animations rather than fragile ad-hoc CSS keyframes.
+- **Backdrop Blur Performance:** NEVER animate the `opacity` of elements with CSS `backdrop-filter: blur` (causes heavy browser composite lag). Animate a solid translucent overlay inside a static blur wrapper instead.
+- **No Heavy Glassmorphism:** Favor clean borders, subtle shadows, and solid surfaces over heavy frosted-glass effects.
+- **Mobile-First Touch & Typography:**
+  - Minimum 44×44px touch targets for mobile interactive controls.
+  - Safe line-heights (`leading-[1.15]`+) on mobile headings to avoid text collisions when titles wrap.
+  - Use `overflow-x-clip` / `overflow-hidden` to prevent horizontal jitter on mobile swipes.
 
 ---
 
-## 6. Component and Code Quality Rules
+## 5. Async Resilience & Race Condition Prevention
 
-- Prefer small, composable, reusable components.
-- Use descriptive names for components, variables, functions, and files.
-- Avoid giant page components that mix unrelated responsibilities.
-- Avoid unnecessary abstractions for one-off requirements.
-- Avoid deeply nested conditional rendering when simpler logic is possible.
-- Use the project's established type system and strictness settings.
-- Avoid `any` or equivalent unsafe escape hatches unless justified.
-- Avoid unexplained magic numbers and duplicated configuration.
-- Remove unused imports, variables, and dead code.
-- Keep comments focused on non-obvious decisions.
-- Do not suppress lint or type errors merely to make checks pass.
+- **Button Mutation Locks:** Always guard UI buttons initiating backend mutations (e.g. `if (loading) return;` or disabled state) to prevent double-click race conditions.
+- **Cache Invalidation:** Always synchronize UI state after mutations via query invalidation or optimistic updates rather than manual fragile state juggling.
 
 ---
 
-## 7. Responsive Design
+## 6. The 8 Core Project Skills & Priority Checklist
 
-Every user-facing feature must be tested at representative viewport sizes.
+Every task must satisfy this priority hierarchy:
 
-- Mobile navigation must work with touch and keyboard input.
-- Content must not overflow horizontally without an intentional design reason.
-- Images must scale without distortion.
-- Forms must remain usable on small screens.
-- Buttons and links must have comfortable interactive areas.
-- Text must remain readable without excessive zooming.
-- Do not rely exclusively on hover for essential functionality.
-- Avoid layout shifts caused by images, fonts, and dynamic content.
+### 1. `frontend-design` (Highest Priority)
+- Creates polished, distinctive website sections that match Rate Global's brand.
+- **Rules:** Avoid generic AI card-grid tropes; follow design tokens; use meaningful whitespace; build composable, reusable components; ensure strong visual hierarchy.
 
----
+### 2. `responsive-development`
+- Ensures all pages and components work seamlessly across phones, tablets, laptops, and desktops.
+- **Rules:** Mobile-first layouts; no accidental horizontal scroll overflow; comfortable interactive touch targets ($\ge 44\times 44\text{px}$); responsive images; touch-friendly navigation.
 
-## 8. Accessibility
+### 3. `accessibility`
+- Target: **WCAG 2.2 Level AA**.
+- **Rules:** Semantic HTML; visible focus indicators; keyboard navigation; accessible form labels and error announcements; sufficient color contrast; respect `prefers-reduced-motion`.
 
-Target WCAG 2.2 Level AA where applicable.
+### 4. `seo-optimization`
+- Builds search-friendly pages and metadata.
+- **Rules:** Unique page titles and meta descriptions; logical heading hierarchy (`h1` $\rightarrow$ `h2` $\rightarrow$ `h3`); clean URLs; XML sitemap; `robots.txt`; canonical tags; accurate structured data.
 
-- Use semantic HTML.
-- Provide labels for form controls.
-- Provide meaningful alternative text for informative images.
-- Ensure keyboard navigation and visible focus indicators.
-- Maintain sufficient text and interface contrast.
-- Use buttons for actions and links for navigation.
-- Provide accessible validation errors and status messages.
-- Maintain logical heading hierarchy.
-- Ensure interactive elements have accessible names.
-- Respect reduced-motion settings.
-- Do not communicate important information through color alone.
+### 5. `web-performance`
+- Targets Core Web Vitals:
+  - **LCP:** $\le 2.5\text{s}$
+  - **INP:** $\le 200\text{ms}$
+  - **CLS:** $\le 0.1$
+- **Rules:** Next.js Image optimization; serve modern formats; minimize client-side JavaScript; avoid third-party bloat; lazy-load below-the-fold assets; eliminate layout shifts.
 
----
+### 6. `form-development`
+- Implements reliable, secure inquiry and contact forms.
+- **Rules:** Client and server-side validation; double-submission locks; CSRF and spam protection; clear success and error states; no hardcoded fake submissions in production.
 
-## 9. Performance
+### 7. `testing-and-validation`
+- Verifies that changes actually work before claiming completion.
+- **Rules:** Run available lint checks (`npm run lint`), TypeScript checks (`npx tsc --noEmit`), unit/component tests, and production build (`npm run build`). Never report a test passed without execution evidence.
 
-- Optimize images and serve appropriate image dimensions.
-- Use modern image formats where supported by the existing stack.
-- Lazy-load appropriate below-the-fold images.
-- Do not lazy-load the primary above-the-fold image when doing so harms loading performance.
-- Minimize unnecessary JavaScript and client-side rendering.
-- Avoid unnecessary third-party scripts.
-- Use appropriate font loading and caching strategies.
-- Avoid layout shifts.
-- Measure performance before claiming an optimization improved it.
-
-Target Core Web Vitals:
-- **LCP:** 2.5 seconds or less.
-- **INP:** 200 milliseconds or less.
-- **CLS:** 0.1 or less.
-
-Treat these as performance goals, not guaranteed outcomes.
+### 8. `code-review`
+- Reviews implementation quality and catches regressions.
+- **Rules:** Inspect git diffs surgically; ensure zero dead code or loose types; identify security risks; verify responsive layouts; report findings with file and line references.
 
 ---
 
-## 10. SEO
+## 7. Mandatory Task Workflow
 
-- Use meaningful page titles and meta descriptions.
-- Maintain a logical heading hierarchy.
-- Use descriptive URLs.
-- Add appropriate canonical metadata.
-- Provide an XML sitemap and appropriate robots.txt configuration.
-- Add Open Graph metadata when relevant.
-- Use structured data only when accurate and applicable.
-- Add descriptive alternative text to informative images.
-- Avoid duplicate page metadata.
-- Do not fabricate ratings, reviews, business addresses, or structured data.
-- Do not promise specific search engine rankings.
+For every task:
+1. **Inspect:** Read relevant requirements and files in read-only mode.
+2. **Propose:** Outline 2–4 options with trade-offs, affected components, and risks.
+3. **Await Authorization:** Stop and await user approval before creating files or altering code.
+4. **Implement:** Write the minimal complete, anti-slop solution.
+5. **Verify:** Execute lint, type-check, tests, and production build commands.
+6. **Report:** Deliver a concise summary of modified files, verification output, and commit status.
 
 ---
 
-## 11. Security and Privacy
+## 8. Definition of Quality
 
-- Never commit secrets, tokens, passwords, or private credentials.
-- Never expose server-only environment variables to the browser.
-- Validate untrusted data on the server when a backend is involved.
-- Sanitize or safely render user-controlled content.
-- Protect inquiry forms against spam and abuse.
-- Avoid collecting unnecessary personal information.
-- Do not log sensitive inquiry data unnecessarily.
-- Follow least-privilege access principles.
-- Review dependency and third-party integration risks.
-- Do not disable security controls to bypass a development problem.
-- Never introduce unsafe HTML rendering without a justified and reviewed need.
-
----
-
-## 12. Forms and User Feedback
-
-- Validate required fields and input formats.
-- Show clear, actionable validation errors.
-- Prevent unintended duplicate submissions where practical.
-- Show a success message only after the submission destination confirms success.
-- Show a useful error state when submission fails.
-- Preserve user input when practical after a recoverable error.
-- Provide accessible status announcements.
-- Never hardcode fake successful form submissions in production.
-- Never expose private form-processing credentials in client code.
-
----
-
-## 13. Testing Requirements
-
-Before completing a task, run the relevant checks supported by the project:
-- Lint.
-- Type checking.
-- Unit tests.
-- Integration tests.
-- Production build.
-- Browser or end-to-end tests when relevant.
-
-For UI changes, verify responsive layouts and key interactions.
-
-For form changes, test valid input, invalid input, successful submission, and failure handling.
-
-For routing changes, verify valid routes, navigation, metadata, and error states.
-
-If a check cannot run, explain why. Do not claim unexecuted tests passed.
-
----
-
-## 14. Dependency and Configuration Rules
-
-- Prefer existing dependencies when they adequately solve the problem.
-- Add a dependency only when its benefit justifies its maintenance and security costs.
-- Check compatibility with the current framework and package manager.
-- Do not replace package managers without approval.
-- Do not upgrade major framework versions as part of an unrelated feature.
-- Never overwrite environment configuration without inspecting it.
-- Keep `.env` files containing secrets out of version control.
-- Maintain an accurate `.env.example` where needed.
-
----
-
-## 15. Change Safety
-
-- Do not delete existing features without approval.
-- Do not perform destructive database, repository, or deployment operations without explicit authorization.
-- Do not overwrite user changes or unrelated work.
-- Inspect the current diff before finalizing.
-- Keep changes focused and explain significant trade-offs.
-- Ask before making irreversible or high-impact changes.
-- Do not silently change public APIs, routes, or data contracts.
-
----
-
-## 16. Completion Report
-
-At the end of each task, provide:
-1. Summary of what was implemented.
-2. Important files created or modified.
-3. Requirements addressed.
-4. Tests and commands executed.
-5. Actual test results.
-6. Known limitations or unresolved issues.
-7. Any follow-up work required.
-
-A task is complete only when the implementation is consistent with the requirements and the applicable verification steps have been performed.
-
----
-
-## 17. Definition of Quality
-
-Prefer correct, maintainable, accessible, secure, and production-ready code over quick visual approximations.
-
-Do not optimize for code volume. Optimize for user value, reliability, clarity, and long-term maintainability.
+Prefer correct, maintainable, accessible, secure, and production-ready code over quick visual approximations. Do not optimize for code volume—optimize for user value, reliability, clarity, and long-term maintainability.
