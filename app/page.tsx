@@ -9,10 +9,10 @@ import { Footer } from "@/components/layout/Footer";
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-slate-50/70 py-4 sm:py-8 px-3 sm:px-6 space-y-14 sm:space-y-20">
+    <main className="min-h-screen bg-slate-50/70 py-4 sm:py-8 space-y-16 sm:space-y-24">
       {/* 1. Hero Island — Floating Elevated Canvas */}
-      <div className="mx-auto max-w-[1140px]">
-        <div className="hero-canvas relative overflow-hidden rounded-[32px] bg-white pt-6 pb-16 lg:pb-24 shadow-sm ring-1 ring-slate-900/5 px-6 lg:px-10">
+      <div className="site-container">
+        <div className="hero-canvas relative overflow-hidden rounded-[32px] bg-white pt-6 pb-8 lg:pb-12 shadow-sm ring-1 ring-slate-900/5 px-6 lg:px-10">
           {/* Architectural Grid Overlay */}
           <div
             className="hero-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_92%_85%_at_50%_45%,#000_70%,transparent_100%)]"
@@ -40,7 +40,7 @@ export default function HomePage() {
       <ContactSection />
 
       {/* 6. Company Footer */}
-      <div className="mx-auto max-w-[1140px] pb-6">
+      <div className="site-container pb-6">
         <Footer />
       </div>
     </main>

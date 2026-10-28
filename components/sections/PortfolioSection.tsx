@@ -38,7 +38,7 @@ export function PortfolioSection({
 
   if (isDark) {
     return (
-      <section id="work" className="mx-auto max-w-[1140px]">
+      <section id="work" className="site-container">
         {/* Inset Framed Island — Physically breaks the page edge with high contrast */}
         <div className="relative overflow-hidden rounded-[32px] bg-slate-900 text-white p-8 sm:p-12 lg:p-14 shadow-2xl ring-1 ring-white/10">
           {/* Subtle Ambient Radial Glow */}
@@ -163,20 +163,12 @@ export function PortfolioSection({
 
   // Light Mode (used on /work page)
   return (
-    <section id="work" className="bg-white px-6 lg:px-12 py-16">
+    <section id="work" className="bg-white px-6 lg:px-10 py-10 lg:py-12">
       <div className="mx-auto max-w-[1080px]">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-          <div>
-            <div className="text-xs font-semibold uppercase tracking-wider text-brand-blue mb-2.5">
-              Case Study Archive
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 leading-[1.15]">
-              Engineered solutions delivering verified business impact.
-            </h2>
-            <p className="mt-3 text-base text-slate-600 max-w-xl">
-              Real production outcomes built with strict type safety, zero architectural bloat, and sub-second performance.
-            </p>
+        {/* Filter Pills Toolbar */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10 pb-6 border-b border-slate-100">
+          <div className="text-sm font-medium text-slate-500">
+            Showing <span className="font-semibold text-slate-900">{displayedProjects.length}</span> verified case {displayedProjects.length === 1 ? "study" : "studies"}
           </div>
 
           {/* Filter Pills */}

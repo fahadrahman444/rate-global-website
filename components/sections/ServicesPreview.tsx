@@ -49,7 +49,7 @@ export function ServicesPreview() {
   const IconComponent = activeTier.icon;
 
   return (
-    <section id="services" className="mx-auto max-w-[1140px]">
+    <section id="services" className="site-container">
       {/* Structural Card Island */}
       <div className="bg-white rounded-[32px] shadow-sm ring-1 ring-slate-900/5 p-8 sm:p-12 lg:p-14">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">

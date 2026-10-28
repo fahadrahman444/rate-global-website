@@ -14,7 +14,11 @@ const serviceOptions = [
   "Full Web Redesign",
 ];
 
-export function ContactSection() {
+interface ContactSectionProps {
+  embedded?: boolean;
+}
+
+export function ContactSection({ embedded = false }: ContactSectionProps) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -67,9 +71,17 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="mx-auto max-w-[1140px]">
-      {/* Structural Card Island */}
-      <div className="bg-white rounded-[32px] shadow-sm ring-1 ring-slate-900/5 p-8 sm:p-12 lg:p-14">
+    <section
+      id="contact"
+      className={embedded ? "py-12 lg:py-16 px-6 lg:px-10" : "site-container"}
+    >
+      <div
+        className={
+          embedded
+            ? "mx-auto max-w-[1080px]"
+            : "bg-white rounded-[32px] shadow-sm ring-1 ring-slate-900/5 p-8 sm:p-12 lg:p-14"
+        }
+      >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
           {/* Left Column: Context & Trust Signals */}
@@ -289,18 +301,20 @@ export function ContactSection() {
         </div>
 
         {/* Pathway to FAQ & Full Contact Hub */}
-        <div className="mt-12 pt-8 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-slate-600 text-center sm:text-left">
-            Have questions about pricing, IP ownership, sprint timelines, or our tech stack?
-          </p>
-          <Link
-            href="/contact#faq"
-            className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 hover:bg-white hover:border-blue-300 hover:text-brand-blue px-6 py-2.5 text-[13px] font-medium text-slate-800 shadow-2xs transition min-h-[44px]"
-          >
-            <span>Read Client FAQs</span>
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
+        {!embedded && (
+          <div className="mt-12 pt-8 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-sm text-slate-600 text-center sm:text-left">
+              Have questions about pricing, IP ownership, sprint timelines, or our tech stack?
+            </p>
+            <Link
+              href="/contact#faq"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 hover:bg-white hover:border-blue-300 hover:text-brand-blue px-6 py-2.5 text-[13px] font-medium text-slate-800 shadow-2xs transition min-h-[44px]"
+            >
+              <span>Read Client FAQs</span>
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );

@@ -51,7 +51,7 @@ const steps: ProcessStep[] = [
 
 export function ProcessSection() {
   return (
-    <section id="process" className="mx-auto max-w-[1140px]">
+    <section id="process" className="site-container">
       {/* Section Header */}
       <div className="text-center max-w-2xl mx-auto mb-12">
         <div className="text-xs font-semibold uppercase tracking-wider text-brand-blue mb-2.5">

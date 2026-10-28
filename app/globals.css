@@ -7,6 +7,62 @@
   --text-primary: #111827;
   --text-secondary: #5F6D7E;
   --brand-blue: #1A73E8;
+
+  /* Spacing scale (8px system) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  /* Layout tokens */
+  --container-width: 1200px;
+  --page-gutter: 24px;
+  --grid-gap: 24px;
+
+  /* Component tokens */
+  --header-height: 80px;
+  --card-padding: 32px;
+  --section-padding: 112px;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --page-gutter: 20px;
+    --card-padding: 24px;
+    --section-padding: 64px;
+    --grid-gap: 16px;
+  }
+}
+
+/* Site Layout System */
+.site-container {
+  width: min(
+    var(--container-width),
+    calc(100% - 2 * var(--page-gutter))
+  );
+  margin-inline: auto;
+}
+
+.section-spacing {
+  padding-block: var(--section-padding);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--grid-gap);
+}
+
+@media (max-width: 767px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 body {

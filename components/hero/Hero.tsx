@@ -3,8 +3,8 @@ import { User, ArrowUpRight } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden pt-8 pb-12 lg:pt-14 lg:pb-20">
-      <div className="mt-8 lg:mt-16 relative">
+    <section className="relative overflow-hidden pt-4 pb-6 lg:pt-8 lg:pb-10">
+      <div className="mt-6 lg:mt-10 relative">
         
         {/* Upper-Right Block: The Big Headline (Col 6 to 12) */}
         <div className="lg:ml-[44%] max-w-[580px]">
@@ -21,7 +21,7 @@ export function Hero() {
           </p>
 
           {/* Dual Pill Buttons */}
-          <div className="mt-7 flex flex-wrap items-center gap-3">
+          <div className="mt-6 flex flex-wrap items-center gap-3">
             {/* Primary Blue CTA with Avatar */}
             <Link
               href="#contact"

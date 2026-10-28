@@ -1,7 +1,7 @@
 export function PartnerLogos() {
   return (
-    <div className="mt-8 lg:mt-16 text-center">
-      <p className="text-[12px] font-semibold text-brand-muted mb-8 tracking-wider uppercase">
+    <div className="mt-6 lg:mt-10 text-center">
+      <p className="text-[12px] font-semibold text-brand-muted mb-6 tracking-wider uppercase">
         Technologies &amp; Platforms We Build With
       </p>
 

@@ -26,19 +26,19 @@ export function Navbar() {
           aria-label="Rate Global Homepage"
         >
           <span className="text-brand-blue">Rate</span>
-          <span className="text-slate-900">Global</span>
+          <span className="text-brand-charcoal">Global</span>
         </Link>
 
-        {/* Desktop Nav Links — Zero Layout Shift Padding */}
-        <div className="hidden md:flex items-center gap-3 text-[13.5px]">
+        {/* Desktop Nav Links — Pure Classy Typography Matching Homepage (Zero Bubble Pills) */}
+        <div className="hidden md:flex items-center gap-9 text-[13.5px]">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`px-3.5 py-1.5 rounded-full transition-all duration-150 border ${
+              className={`transition-colors font-medium ${
                 link.active
-                  ? "font-semibold text-brand-blue bg-blue-50/90 border-blue-200/60 shadow-2xs"
-                  : "font-normal text-slate-600 hover:text-slate-900 border-transparent hover:bg-slate-100/60"
+                  ? "text-brand-charcoal"
+                  : "text-brand-slate hover:text-brand-charcoal"
               }`}
             >
               {link.label}
@@ -50,7 +50,7 @@ export function Navbar() {
         <div className="flex items-center gap-3">
           <Link
             href="/contact"
-            className="hidden sm:inline-flex items-center gap-2.5 rounded-full border border-slate-200/90 bg-white py-1.5 pr-4 pl-1.5 text-[12.5px] font-medium text-slate-800 shadow-sm transition hover:bg-slate-50 hover:border-slate-300 min-h-[44px]"
+            className="hidden sm:inline-flex items-center gap-2.5 rounded-full border border-slate-200/90 bg-white py-1.5 pr-4 pl-1.5 text-[12.5px] font-medium text-brand-charcoal shadow-sm transition hover:bg-slate-50 hover:border-slate-300 min-h-[44px]"
           >
             <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#E3EFFF] text-brand-blue">
               <User className="h-4 w-4" />
@@ -74,7 +74,7 @@ export function Navbar() {
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
         <div className="absolute top-[70px] left-0 right-0 z-50 rounded-3xl border border-white/80 bg-white/95 p-6 shadow-xl backdrop-blur-xl md:hidden">
-          <div className="flex flex-col gap-2 text-[15px] font-medium text-slate-900">
+          <div className="flex flex-col gap-3 text-[15px] font-medium text-brand-charcoal">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -82,8 +82,8 @@ export function Navbar() {
                 onClick={() => setMobileMenuOpen(false)}
                 className={`py-2 px-3 rounded-xl transition ${
                   link.active
-                    ? "text-brand-blue bg-blue-50/80 font-semibold"
-                    : "text-slate-700 hover:bg-slate-50"
+                    ? "text-brand-blue font-semibold"
+                    : "text-brand-charcoal hover:bg-slate-50"
                 }`}
               >
                 {link.label}
