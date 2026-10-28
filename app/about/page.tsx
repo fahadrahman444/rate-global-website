@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { SubpageHeader } from "@/components/layout/SubpageHeader";
 import { 
   Code2, 
   Cpu, 
   ShieldCheck, 
   Sparkles, 
-  Layers, 
   Zap, 
   ArrowRight, 
   CheckCircle2 
@@ -58,31 +58,19 @@ export default function AboutPage() {
     <main className="py-6 sm:py-10 px-3 sm:px-6">
       <div className="mx-auto max-w-[1200px] overflow-hidden rounded-[28px] bg-white shadow-2xl shadow-slate-300/60 border border-slate-200/80">
         
-        {/* Header Canvas */}
-        <div className="hero-canvas relative overflow-hidden pt-6 pb-20 lg:pb-24 border-b border-slate-100">
-          <div
-            className="hero-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_92%_85%_at_50%_45%,#000_70%,transparent_100%)]"
-            aria-hidden="true"
-          />
-
-          <div className="relative z-10 mx-auto max-w-[1080px] px-6 lg:px-10">
-            <Navbar />
-
-            {/* Hero Header */}
-            <div className="pt-16 pb-6 text-center max-w-3xl mx-auto">
-              <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/60 bg-blue-50/80 px-3.5 py-1 text-[12px] font-medium text-brand-blue mb-6">
-                <Code2 className="h-3.5 w-3.5" />
-                <span>About Rate Global</span>
-              </div>
-              <h1 className="font-display text-4xl sm:text-5xl font-semibold tracking-[-0.03em] text-brand-charcoal leading-[1.15]">
-                Engineering digital products that compound business value.
-              </h1>
-              <p className="mt-6 text-[16px] sm:text-[18px] text-brand-slate leading-relaxed">
-                Rate Global is a modern web development and digital engineering partner. We design, architect, and deploy high-speed web platforms, enterprise SaaS products, and bespoke user experiences for growth-driven companies worldwide.
-              </p>
-            </div>
-          </div>
+        {/* Navigation Bar */}
+        <div className="pt-4 px-6 lg:px-10">
+          <Navbar />
         </div>
+
+        {/* Distinct Subpage Header with Breadcrumb */}
+        <SubpageHeader
+          currentLabel="About Us"
+          badge="Company Overview & Culture"
+          icon={Code2}
+          title="Engineering digital products that compound business value."
+          description="Rate Global is a modern web development and digital engineering partner. We design, architect, and deploy high-speed web platforms, enterprise SaaS products, and bespoke user experiences for growth-driven companies worldwide."
+        />
 
         {/* Narrative & Mission */}
         <section className="py-20 px-6 lg:px-12 bg-white">

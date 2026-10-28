@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { ShieldCheck, ArrowLeft, Lock } from "lucide-react";
+import { SubpageHeader } from "@/components/layout/SubpageHeader";
+import { ArrowLeft, Lock } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Privacy Policy — Rate Global",
@@ -17,31 +18,19 @@ export default function PrivacyPolicyPage() {
     <main className="py-6 sm:py-10 px-3 sm:px-6">
       <div className="mx-auto max-w-[1200px] overflow-hidden rounded-[28px] bg-white shadow-2xl shadow-slate-300/60 border border-slate-200/80">
         
-        {/* Header Canvas */}
-        <div className="hero-canvas relative overflow-hidden pt-6 pb-16 lg:pb-20 border-b border-slate-100">
-          <div
-            className="hero-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_92%_85%_at_50%_45%,#000_70%,transparent_100%)]"
-            aria-hidden="true"
-          />
-
-          <div className="relative z-10 mx-auto max-w-[1080px] px-6 lg:px-10">
-            <Navbar />
-
-            {/* Header Content */}
-            <div className="pt-16 pb-6 text-center max-w-2xl mx-auto">
-              <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/60 bg-blue-50/80 px-3.5 py-1 text-[12px] font-medium text-brand-blue mb-6">
-                <Lock className="h-3.5 w-3.5" />
-                <span>Privacy &amp; Data Protection</span>
-              </div>
-              <h1 className="font-display text-3xl sm:text-4xl font-semibold tracking-tight text-brand-charcoal">
-                Privacy Policy
-              </h1>
-              <p className="mt-3 text-[14px] text-brand-slate">
-                Effective date: {lastUpdated}
-              </p>
-            </div>
-          </div>
+        {/* Navigation Bar */}
+        <div className="pt-4 px-6 lg:px-10">
+          <Navbar />
         </div>
+
+        {/* Distinct Subpage Header with Breadcrumbs */}
+        <SubpageHeader
+          currentLabel="Privacy Policy"
+          badge="Legal & Data Protection"
+          icon={Lock}
+          title="Privacy Policy & Data Safeguards"
+          description={`Effective Date: ${lastUpdated}. We adhere to strict data minimization, TLS 1.3 encryption, and GDPR/CCPA consumer protections.`}
+        />
 
         {/* Content Body */}
         <div className="py-16 px-6 lg:px-12 bg-white">
@@ -134,7 +123,7 @@ export default function PrivacyPolicyPage() {
             <div className="pt-8">
               <Link
                 href="/"
-                className="inline-flex items-center gap-2 text-[14px] font-medium text-brand-blue hover:text-blue-700 transition"
+                className="inline-flex items-center gap-2 text-[14px] font-medium text-brand-blue hover:text-blue-700 transition min-h-[44px]"
               >
                 <ArrowLeft className="h-4 w-4" />
                 <span>Return to Homepage</span>

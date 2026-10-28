@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import Link from "next/link";
 import { Mail, Clock, ShieldCheck, CheckCircle, Loader2, ArrowRight } from "lucide-react";
 
 const budgetOptions = ["< $10k", "$10k – $25k", "$25k – $50k", "$50k+"];
@@ -274,6 +275,20 @@ export function ContactSection() {
             </div>
           </div>
 
+        </div>
+
+        {/* Pathway to FAQ & Full Contact Hub */}
+        <div className="mt-14 pt-8 border-t border-slate-200/60 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-[14px] text-brand-slate text-center sm:text-left">
+            Have questions about pricing, IP ownership, sprint timelines, or our tech stack?
+          </p>
+          <Link
+            href="/contact#faq"
+            className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white hover:border-blue-300 hover:text-brand-blue px-6 py-2.5 text-[13px] font-medium text-brand-charcoal shadow-2xs transition min-h-[44px]"
+          >
+            <span>Read Client FAQs</span>
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
 
       </div>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { SubpageHeader } from "@/components/layout/SubpageHeader";
 import {
   Code,
   Layers,
@@ -120,31 +121,19 @@ export default function ServicesPage() {
     <main className="py-6 sm:py-10 px-3 sm:px-6">
       <div className="mx-auto max-w-[1200px] overflow-hidden rounded-[28px] bg-white shadow-2xl shadow-slate-300/60 border border-slate-200/80">
         
-        {/* Header Canvas */}
-        <div className="hero-canvas relative overflow-hidden pt-6 pb-20 lg:pb-24 border-b border-slate-100">
-          <div
-            className="hero-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_92%_85%_at_50%_45%,#000_70%,transparent_100%)]"
-            aria-hidden="true"
-          />
-
-          <div className="relative z-10 mx-auto max-w-[1080px] px-6 lg:px-10">
-            <Navbar />
-
-            {/* Hero Header */}
-            <div className="pt-16 pb-6 text-center max-w-3xl mx-auto">
-              <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/60 bg-blue-50/80 px-3.5 py-1 text-[12px] font-medium text-brand-blue mb-6">
-                <Zap className="h-3.5 w-3.5" />
-                <span>Capabilities & Engineering Disciplines</span>
-              </div>
-              <h1 className="font-display text-4xl sm:text-5xl font-semibold tracking-[-0.03em] text-brand-charcoal leading-[1.15]">
-                Full-cycle web development built for speed and durability.
-              </h1>
-              <p className="mt-6 text-[16px] sm:text-[18px] text-brand-slate leading-relaxed">
-                From architectural discovery through production launch, we engineer bespoke digital products using proven modern standards: Next.js, React, TypeScript, and clean cloud infrastructure.
-              </p>
-            </div>
-          </div>
+        {/* Navigation Bar */}
+        <div className="pt-4 px-6 lg:px-10">
+          <Navbar />
         </div>
+
+        {/* Distinct Subpage Header with Breadcrumbs */}
+        <SubpageHeader
+          currentLabel="Services"
+          badge="Full-Stack Capabilities"
+          icon={Zap}
+          title="Full-cycle web development built for speed and durability."
+          description="From architectural discovery through production launch, we engineer bespoke digital products using proven modern standards: Next.js, React, TypeScript, and clean cloud infrastructure."
+        />
 
         {/* Detailed Service Offerings */}
         <section className="py-20 px-6 lg:px-12 bg-white">
@@ -199,7 +188,7 @@ export default function ServicesPage() {
                       </span>
                       <Link
                         href="/contact"
-                        className="inline-flex items-center gap-1.5 text-[13px] font-medium text-brand-blue hover:text-blue-700 transition"
+                        className="inline-flex items-center gap-1.5 text-[13px] font-medium text-brand-blue hover:text-blue-700 transition min-h-[44px]"
                       >
                         <span>Request Scope & Estimate</span>
                         <ArrowRight className="h-4 w-4" />

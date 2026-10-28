@@ -1,4 +1,5 @@
-import { Search, Compass, Terminal, ShieldCheck } from "lucide-react";
+import Link from "next/link";
+import { Search, Compass, Terminal, ShieldCheck, ArrowRight } from "lucide-react";
 
 interface ProcessStep {
   step: string;
@@ -16,8 +17,8 @@ const steps: ProcessStep[] = [
     duration: "Week 1",
     icon: Search,
     description:
-      "We unpack your business requirements, define user personas, map user flows, and establish the technical stack and system architecture.",
-    deliverables: ["Technical SRS Document", "Information Architecture", "Sprint Roadmap"],
+      "We unpack your business objectives, interview technical stakeholders, define API contracts, and establish measurable Core Web Vitals targets.",
+    deliverables: ["Technical SRS Document", "System Architecture Blueprint", "Scope & Sprint Roadmap"],
   },
   {
     step: "02",
@@ -54,34 +55,34 @@ export function ProcessSection() {
       <div className="mx-auto max-w-[1080px]">
         
         {/* Section Header */}
-        <div className="max-w-[620px] mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-16">
           <div className="text-[12.5px] font-semibold uppercase tracking-wider text-brand-blue mb-2.5">
-            How We Work
+            How We Deliver
           </div>
-          <h2 className="font-display text-[36px] sm:text-[44px] font-bold text-brand-charcoal tracking-tight leading-[1.15] mb-4">
-            A transparent, sprint-driven engineering process.
+          <h2 className="font-display text-[36px] sm:text-[44px] font-bold text-brand-charcoal tracking-tight leading-[1.15]">
+            4-step sprint-driven engineering process.
           </h2>
-          <p className="text-[15px] leading-relaxed text-brand-slate">
-            No endless meetings, no bloated agency overhead. Just senior engineers shipping clean, battle-tested code on schedule.
+          <p className="mt-4 text-[15px] text-brand-slate leading-relaxed">
+            From initial requirements discovery to zero-downtime launch, we adhere to disciplined milestones with continuous stakeholder visibility.
           </p>
         </div>
 
-        {/* 4-Step Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* 4 Steps Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((item) => {
             const Icon = item.icon;
             return (
               <div
                 key={item.step}
-                className="relative rounded-[24px] border border-white/80 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md flex flex-col justify-between"
+                className="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm hover:border-blue-200 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
-                  {/* Top: Step Number & Badge */}
-                  <div className="flex items-center justify-between mb-5">
-                    <span className="font-display text-[26px] font-bold text-brand-blue tracking-tight">
+                  {/* Step Number & Duration Badge */}
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="font-display text-[26px] font-bold text-brand-charcoal">
                       {item.step}
                     </span>
-                    <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-[11px] font-medium text-slate-500">
+                    <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-[11px] font-medium text-slate-600">
                       {item.duration}
                     </span>
                   </div>
@@ -119,6 +120,20 @@ export function ProcessSection() {
               </div>
             );
           })}
+        </div>
+
+        {/* Clear Multi-Page Pathway to About Us */}
+        <div className="mt-14 pt-8 border-t border-slate-200/60 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-[14px] text-brand-slate text-center sm:text-left">
+            Curious about our minimalist engineering values, code standards, and technical team?
+          </p>
+          <Link
+            href="/about"
+            className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white hover:border-blue-300 hover:text-brand-blue px-6 py-2.5 text-[13px] font-medium text-brand-charcoal shadow-2xs transition min-h-[44px]"
+          >
+            <span>Learn About Our Culture &amp; Values</span>
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
 
       </div>

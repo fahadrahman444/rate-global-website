@@ -2,10 +2,19 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { User, Menu, X } from "lucide-react";
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  const navLinks = [
+    { href: "/services", label: "Services", active: pathname === "/services" },
+    { href: "/#work", label: "Our Work", active: false },
+    { href: "/about", label: "About Us", active: pathname === "/about" },
+    { href: "/contact", label: "Contact", active: pathname === "/contact" },
+  ];
 
   return (
     <header className="relative z-50 flex justify-center pt-2">
@@ -20,20 +29,21 @@ export function Navbar() {
           <span className="text-brand-charcoal">Global</span>
         </Link>
 
-        {/* Desktop Nav Links */}
-        <div className="hidden md:flex items-center gap-9 text-[13.5px] font-normal text-brand-slate">
-          <Link href="/services" className="transition-colors hover:text-brand-charcoal">
-            Services
-          </Link>
-          <Link href="/#work" className="transition-colors hover:text-brand-charcoal">
-            Our Work
-          </Link>
-          <Link href="/about" className="transition-colors hover:text-brand-charcoal">
-            About Us
-          </Link>
-          <Link href="/contact" className="transition-colors hover:text-brand-charcoal">
-            Contact
-          </Link>
+        {/* Desktop Nav Links with Active Indicator */}
+        <div className="hidden md:flex items-center gap-6 text-[13.5px]">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`transition-all duration-200 ${
+                link.active
+                  ? "font-semibold text-brand-blue bg-blue-50/90 border border-blue-200/60 px-3.5 py-1 rounded-full shadow-2xs"
+                  : "font-normal text-brand-slate hover:text-brand-charcoal px-2.5 py-1"
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
 
         {/* Action Button & Mobile Toggle */}
@@ -64,40 +74,26 @@ export function Navbar() {
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
         <div className="absolute top-[70px] left-0 right-0 z-50 rounded-3xl border border-white/80 bg-white/95 p-6 shadow-xl backdrop-blur-xl md:hidden">
-          <div className="flex flex-col gap-4 text-[15px] font-medium text-brand-charcoal">
-            <Link
-              href="/services"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-2 transition hover:text-brand-blue"
-            >
-              Services
-            </Link>
-            <Link
-              href="/#work"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-2 transition hover:text-brand-blue"
-            >
-              Our Work
-            </Link>
-            <Link
-              href="/about"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-2 transition hover:text-brand-blue"
-            >
-              About Us
-            </Link>
-            <Link
-              href="/contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-2 transition hover:text-brand-blue"
-            >
-              Contact
-            </Link>
-            <div className="pt-2 border-t border-slate-100">
+          <div className="flex flex-col gap-2 text-[15px] font-medium text-brand-charcoal">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`py-2 px-3 rounded-xl transition ${
+                  link.active
+                    ? "text-brand-blue bg-blue-50/80 font-semibold"
+                    : "text-brand-charcoal hover:bg-slate-50"
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <div className="pt-3 mt-1 border-t border-slate-100">
               <Link
                 href="/contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center gap-2 rounded-full bg-brand-blue py-3 px-5 text-[14px] font-medium text-white shadow-sm transition hover:bg-blue-600"
+                className="flex items-center justify-center gap-2 rounded-full bg-brand-blue py-3 px-5 text-[14px] font-medium text-white shadow-sm transition hover:bg-blue-600 min-h-[44px]"
               >
                 <span>Book a Discovery Call</span>
               </Link>

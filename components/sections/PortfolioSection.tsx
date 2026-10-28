@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { portfolioProjects, type ProjectCaseStudy } from "@/data/portfolio";
-import { ArrowUpRight, CheckCircle2, Layers } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, Layers, ArrowRight } from "lucide-react";
 
 type CategoryFilter = "All" | ProjectCaseStudy["category"];
 
@@ -116,6 +117,22 @@ export function PortfolioSection() {
               </div>
             </article>
           ))}
+        </div>
+
+        {/* Clear Multi-Page Pathway */}
+        <div className="mt-14 pt-8 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-[14px] text-brand-slate text-center sm:text-left">
+            Have an architectural requirement or need custom full-stack development?
+          </p>
+          <div className="flex items-center gap-3">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-[#F8FAFD] hover:bg-white hover:border-blue-300 hover:text-brand-blue px-6 py-2.5 text-[13px] font-medium text-brand-charcoal shadow-2xs transition min-h-[44px]"
+            >
+              <span>Discuss Your Scope</span>
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
         </div>
 
       </div>
