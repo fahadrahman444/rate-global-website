@@ -11,7 +11,7 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-slate-50/70 py-4 sm:py-8 px-3 sm:px-6 space-y-14 sm:space-y-20">
       {/* 1. Hero Island — Floating Elevated Canvas */}
-      <div className="mx-auto max-w-[1180px]">
+      <div className="mx-auto max-w-[1140px]">
         <div className="hero-canvas relative overflow-hidden rounded-[32px] bg-white pt-6 pb-16 lg:pb-24 shadow-sm ring-1 ring-slate-900/5 px-6 lg:px-10">
           {/* Architectural Grid Overlay */}
           <div

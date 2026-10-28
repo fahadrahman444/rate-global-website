@@ -118,163 +118,142 @@ const engagementModels = [
 
 export default function ServicesPage() {
   return (
-    <main className="py-6 sm:py-10 px-3 sm:px-6">
-      <div className="mx-auto max-w-[1200px] overflow-hidden rounded-[28px] bg-white shadow-2xl shadow-slate-300/60 border border-slate-200/80">
-        
-        {/* Navigation Bar */}
-        <div className="pt-4 px-6 lg:px-10">
+    <main className="min-h-screen bg-slate-50/70 py-4 sm:py-8 px-3 sm:px-6 space-y-12">
+      {/* Unified Header Island */}
+      <div className="mx-auto max-w-[1140px]">
+        <div className="bg-white rounded-[32px] shadow-sm ring-1 ring-slate-900/5 pt-6 pb-4 overflow-hidden relative">
           <Navbar />
+          <SubpageHeader
+            currentLabel="Services"
+            badge="Full-Stack Capabilities"
+            icon={Zap}
+            title="Full-cycle web development built for speed and durability."
+            description="From architectural discovery through production launch, we engineer bespoke digital products using proven modern standards: Next.js, React, TypeScript, and clean cloud infrastructure."
+          />
         </div>
+      </div>
 
-        {/* Distinct Subpage Header with Breadcrumbs */}
-        <SubpageHeader
-          currentLabel="Services"
-          badge="Full-Stack Capabilities"
-          icon={Zap}
-          title="Full-cycle web development built for speed and durability."
-          description="From architectural discovery through production launch, we engineer bespoke digital products using proven modern standards: Next.js, React, TypeScript, and clean cloud infrastructure."
-        />
+      {/* Main Content Island */}
+      <div className="mx-auto max-w-[1140px]">
+        <div className="bg-white rounded-[32px] shadow-sm ring-1 ring-slate-900/5 p-8 sm:p-12 lg:p-14 space-y-16">
+          {serviceOfferings.map((service, idx) => {
+            const Icon = service.icon;
+            return (
+              <div
+                key={service.id}
+                id={service.id}
+                className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start pt-12 first:pt-0 ${
+                  idx !== 0 ? "border-t border-slate-100" : ""
+                }`}
+              >
+                <div className="lg:col-span-5">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-brand-blue mb-4">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+                    {service.title}
+                  </h2>
+                  <p className="mt-2 text-sm font-semibold text-brand-blue">
+                    {service.subtitle}
+                  </p>
+                  <p className="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed">
+                    {service.description}
+                  </p>
+                  <div className="mt-6 p-4 rounded-xl bg-slate-50 border border-slate-100 text-xs text-slate-600">
+                    <span className="font-semibold text-slate-900">Key Deliverables:</span>{" "}
+                    {service.deliverables}
+                  </div>
+                </div>
 
-        {/* Detailed Service Offerings */}
-        <section className="py-20 px-6 lg:px-12 bg-white">
-          <div className="mx-auto max-w-[1080px] space-y-16">
-            {serviceOfferings.map((service, idx) => {
-              const Icon = service.icon;
-              return (
-                <div
-                  key={service.id}
-                  id={service.id}
-                  className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start pt-12 first:pt-0 ${
-                    idx !== 0 ? "border-t border-slate-100" : ""
-                  }`}
-                >
-                  <div className="lg:col-span-5">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-brand-blue mb-4">
-                      <Icon className="h-6 w-6" />
-                    </div>
-                    <h2 className="font-display text-2xl sm:text-3xl font-semibold text-brand-charcoal tracking-tight">
-                      {service.title}
-                    </h2>
-                    <p className="mt-3 text-[14px] font-medium text-brand-blue">
-                      {service.subtitle}
-                    </p>
-                    <p className="mt-4 text-[14.5px] text-brand-slate leading-relaxed">
-                      {service.description}
-                    </p>
-                    <div className="mt-6 p-4 rounded-xl bg-[#F8FAFD] border border-slate-100 text-[13px] text-brand-slate">
-                      <span className="font-semibold text-brand-charcoal">Key Deliverables:</span>{" "}
-                      {service.deliverables}
-                    </div>
+                <div className="lg:col-span-7 bg-slate-50/70 border border-slate-200/80 rounded-2xl p-6 sm:p-8">
+                  <div className="text-xs font-semibold uppercase tracking-wider text-brand-blue mb-4">
+                    Technical Capabilities &amp; Inclusions
+                  </div>
+                  <div className="space-y-3.5">
+                    {service.features.map((feature) => (
+                      <div key={feature} className="flex items-start gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-emerald-500 shrink-0 mt-0.5" />
+                        <span className="text-sm text-slate-800 font-medium">
+                          {feature}
+                        </span>
+                      </div>
+                    ))}
                   </div>
 
-                  <div className="lg:col-span-7 bg-[#F8FAFD] border border-slate-100 rounded-2xl p-6 sm:p-8">
-                    <div className="text-[12px] font-semibold uppercase tracking-wider text-brand-blue mb-4">
-                      Technical Capabilities & Inclusions
-                    </div>
-                    <div className="space-y-3.5">
-                      {service.features.map((feature) => (
-                        <div key={feature} className="flex items-start gap-3">
-                          <CheckCircle2 className="h-5 w-5 text-emerald-500 shrink-0 mt-0.5" />
-                          <span className="text-[14px] text-brand-charcoal font-medium">
-                            {feature}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
+                  <div className="mt-8 pt-6 border-t border-slate-200/70 flex flex-wrap items-center justify-between gap-4">
+                    <span className="text-xs text-slate-500">
+                      Ready to scope your {service.title.toLowerCase()}?
+                    </span>
+                    <Link
+                      href="/contact"
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-blue hover:text-blue-700 transition min-h-[44px]"
+                    >
+                      <span>Request Scope &amp; Estimate</span>
+                      <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
 
-                    <div className="mt-8 pt-6 border-t border-slate-200/70 flex flex-wrap items-center justify-between gap-4">
-                      <span className="text-[13px] text-brand-slate">
-                        Ready to scope your {service.title.toLowerCase()}?
-                      </span>
-                      <Link
-                        href="/contact"
-                        className="inline-flex items-center gap-1.5 text-[13px] font-medium text-brand-blue hover:text-blue-700 transition min-h-[44px]"
-                      >
-                        <span>Request Scope & Estimate</span>
-                        <ArrowRight className="h-4 w-4" />
-                      </Link>
+      {/* Engagement Models Island */}
+      <div className="mx-auto max-w-[1140px]">
+        <div className="bg-white rounded-[32px] shadow-sm ring-1 ring-slate-900/5 p-8 sm:p-12 lg:p-14">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <div className="text-xs font-semibold uppercase tracking-wider text-brand-blue mb-2.5">
+              Flexible Collaboration
+            </div>
+            <h2 className="text-3xl font-bold text-slate-900 tracking-tight">
+              Engagement models suited to your timeline.
+            </h2>
+            <p className="mt-3 text-base text-slate-600">
+              Transparent delivery with zero hidden overhead, continuous visibility, and senior developer involvement.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {engagementModels.map((model) => {
+              const Icon = model.icon;
+              return (
+                <div
+                  key={model.name}
+                  className="rounded-2xl border border-slate-200/80 bg-slate-50/50 p-7 shadow-2xs flex flex-col justify-between hover:border-blue-200 transition"
+                >
+                  <div>
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-brand-blue mb-4">
+                      <Icon className="h-5 w-5" />
                     </div>
+                    <h3 className="text-lg font-bold text-slate-900 mb-1">
+                      {model.name}
+                    </h3>
+                    <div className="text-xs font-semibold text-brand-blue mb-3">
+                      {model.bestFor}
+                    </div>
+                    <p className="text-sm text-slate-600 leading-relaxed mb-6">
+                      {model.description}
+                    </p>
+                  </div>
+
+                  <div className="pt-4 border-t border-slate-200/60 space-y-2.5">
+                    {model.features.map((item) => (
+                      <div key={item} className="flex items-center gap-2 text-xs text-slate-700">
+                        <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0" />
+                        <span>{item}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
               );
             })}
           </div>
-        </section>
+        </div>
+      </div>
 
-        {/* Engagement Models */}
-        <section className="py-20 px-6 lg:px-12 bg-[#F8FAFD] border-t border-slate-100">
-          <div className="mx-auto max-w-[1080px]">
-            <div className="text-center max-w-2xl mx-auto mb-16">
-              <div className="text-[12px] font-semibold uppercase tracking-wider text-brand-blue mb-2">
-                Flexible Collaboration
-              </div>
-              <h2 className="font-display text-3xl font-semibold text-brand-charcoal tracking-tight">
-                Engagement models suited to your timeline.
-              </h2>
-              <p className="mt-4 text-[15px] text-brand-slate">
-                Transparent delivery with zero hidden overhead, continuous visibility, and senior developer involvement.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {engagementModels.map((model) => {
-                const Icon = model.icon;
-                return (
-                  <div
-                    key={model.name}
-                    className="rounded-2xl border border-slate-200/80 bg-white p-7 shadow-sm flex flex-col justify-between hover:border-blue-200 transition"
-                  >
-                    <div>
-                      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-brand-blue mb-4">
-                        <Icon className="h-5 w-5" />
-                      </div>
-                      <h3 className="text-[18px] font-semibold text-brand-charcoal mb-2">
-                        {model.name}
-                      </h3>
-                      <div className="text-[12px] font-medium text-brand-blue mb-3">
-                        {model.bestFor}
-                      </div>
-                      <p className="text-[13.5px] text-brand-slate leading-relaxed mb-6">
-                        {model.description}
-                      </p>
-                    </div>
-
-                    <div className="pt-4 border-t border-slate-100 space-y-2.5">
-                      {model.features.map((item) => (
-                        <div key={item} className="flex items-center gap-2 text-[12.5px] text-brand-charcoal">
-                          <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0" />
-                          <span>{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* Bottom CTA */}
-        <section className="py-16 px-6 lg:px-12 bg-white border-t border-slate-100 text-center">
-          <div className="mx-auto max-w-2xl">
-            <h2 className="font-display text-2xl sm:text-3xl font-semibold text-brand-charcoal">
-              Need custom technical specifications?
-            </h2>
-            <p className="mt-3 text-[15px] text-brand-slate">
-              Send us your requirements or schedule an architecture review. We respond with a tangible technical scope within 24 hours.
-            </p>
-            <div className="mt-8">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-blue px-7 py-3 text-[14px] font-medium text-white shadow-md shadow-blue-500/20 transition hover:bg-blue-600 min-h-[44px]"
-              >
-                <span>Initiate Your Project</span>
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-          </div>
-        </section>
-
+      {/* Footer Island */}
+      <div className="mx-auto max-w-[1140px] pb-6">
         <Footer />
       </div>
     </main>

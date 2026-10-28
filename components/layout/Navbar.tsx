@@ -17,7 +17,7 @@ export function Navbar() {
   ];
 
   return (
-    <header className="relative z-50 flex justify-center pt-2">
+    <header className="relative z-50 flex justify-center pt-2 w-full max-w-[1080px] mx-auto">
       <nav className="flex h-[58px] w-full items-center justify-between rounded-full border border-white/80 bg-white/70 px-5 sm:px-7 shadow-[0_4px_20px_rgba(0,0,0,0.03)] backdrop-blur-md transition-all">
         {/* Brand Wordmark */}
         <Link
@@ -26,19 +26,19 @@ export function Navbar() {
           aria-label="Rate Global Homepage"
         >
           <span className="text-brand-blue">Rate</span>
-          <span className="text-brand-charcoal">Global</span>
+          <span className="text-slate-900">Global</span>
         </Link>
 
-        {/* Desktop Nav Links with Active Indicator */}
-        <div className="hidden md:flex items-center gap-6 text-[13.5px]">
+        {/* Desktop Nav Links — Zero Layout Shift Padding */}
+        <div className="hidden md:flex items-center gap-3 text-[13.5px]">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`transition-all duration-200 ${
+              className={`px-3.5 py-1.5 rounded-full transition-all duration-150 border ${
                 link.active
-                  ? "font-semibold text-brand-blue bg-blue-50/90 border border-blue-200/60 px-3.5 py-1 rounded-full shadow-2xs"
-                  : "font-normal text-brand-slate hover:text-brand-charcoal px-2.5 py-1"
+                  ? "font-semibold text-brand-blue bg-blue-50/90 border-blue-200/60 shadow-2xs"
+                  : "font-normal text-slate-600 hover:text-slate-900 border-transparent hover:bg-slate-100/60"
               }`}
             >
               {link.label}
@@ -50,7 +50,7 @@ export function Navbar() {
         <div className="flex items-center gap-3">
           <Link
             href="/contact"
-            className="hidden sm:inline-flex items-center gap-2.5 rounded-full border border-slate-200/90 bg-white py-1.5 pr-4 pl-1.5 text-[12.5px] font-medium text-brand-charcoal shadow-sm transition hover:bg-slate-50 hover:border-slate-300 min-h-[44px]"
+            className="hidden sm:inline-flex items-center gap-2.5 rounded-full border border-slate-200/90 bg-white py-1.5 pr-4 pl-1.5 text-[12.5px] font-medium text-slate-800 shadow-sm transition hover:bg-slate-50 hover:border-slate-300 min-h-[44px]"
           >
             <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#E3EFFF] text-brand-blue">
               <User className="h-4 w-4" />
@@ -74,7 +74,7 @@ export function Navbar() {
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
         <div className="absolute top-[70px] left-0 right-0 z-50 rounded-3xl border border-white/80 bg-white/95 p-6 shadow-xl backdrop-blur-xl md:hidden">
-          <div className="flex flex-col gap-2 text-[15px] font-medium text-brand-charcoal">
+          <div className="flex flex-col gap-2 text-[15px] font-medium text-slate-900">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -83,7 +83,7 @@ export function Navbar() {
                 className={`py-2 px-3 rounded-xl transition ${
                   link.active
                     ? "text-brand-blue bg-blue-50/80 font-semibold"
-                    : "text-brand-charcoal hover:bg-slate-50"
+                    : "text-slate-700 hover:bg-slate-50"
                 }`}
               >
                 {link.label}

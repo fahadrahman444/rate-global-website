@@ -55,34 +55,33 @@ const milestones = [
 
 export default function AboutPage() {
   return (
-    <main className="py-6 sm:py-10 px-3 sm:px-6">
-      <div className="mx-auto max-w-[1200px] overflow-hidden rounded-[28px] bg-white shadow-2xl shadow-slate-300/60 border border-slate-200/80">
-        
-        {/* Navigation Bar */}
-        <div className="pt-4 px-6 lg:px-10">
+    <main className="min-h-screen bg-slate-50/70 py-4 sm:py-8 px-3 sm:px-6 space-y-12">
+      {/* Header Island */}
+      <div className="mx-auto max-w-[1140px]">
+        <div className="bg-white rounded-[32px] shadow-sm ring-1 ring-slate-900/5 pt-6 pb-4 overflow-hidden relative">
           <Navbar />
+          <SubpageHeader
+            currentLabel="About Us"
+            badge="Company Overview & Culture"
+            icon={Code2}
+            title="Engineering digital products that compound business value."
+            description="Rate Global is a modern web development and digital engineering partner. We design, architect, and deploy high-speed web platforms, enterprise SaaS products, and bespoke user experiences for growth-driven companies worldwide."
+          />
         </div>
+      </div>
 
-        {/* Distinct Subpage Header with Breadcrumb */}
-        <SubpageHeader
-          currentLabel="About Us"
-          badge="Company Overview & Culture"
-          icon={Code2}
-          title="Engineering digital products that compound business value."
-          description="Rate Global is a modern web development and digital engineering partner. We design, architect, and deploy high-speed web platforms, enterprise SaaS products, and bespoke user experiences for growth-driven companies worldwide."
-        />
-
-        {/* Narrative & Mission */}
-        <section className="py-20 px-6 lg:px-12 bg-white">
-          <div className="mx-auto max-w-[1080px] grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      {/* Narrative & Purpose Island */}
+      <div className="mx-auto max-w-[1140px]">
+        <div className="bg-white rounded-[32px] shadow-sm ring-1 ring-slate-900/5 p-8 sm:p-12 lg:p-14">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
-              <div className="text-[12px] font-semibold uppercase tracking-wider text-brand-blue mb-2">
+              <div className="text-xs font-semibold uppercase tracking-wider text-brand-blue mb-2.5">
                 Our Purpose
               </div>
-              <h2 className="font-display text-3xl font-semibold text-brand-charcoal tracking-tight">
+              <h2 className="text-3xl font-bold text-slate-900 tracking-tight">
                 Eliminating engineering slop to deliver clean, durable software.
               </h2>
-              <div className="mt-6 space-y-4 text-[15px] text-brand-slate leading-relaxed">
+              <div className="mt-5 space-y-4 text-base text-slate-600 leading-relaxed">
                 <p>
                   Most web projects suffer from architectural bloat, fragile dependencies, and over-engineered abstractions that slow teams down. At Rate Global, we take the opposite approach.
                 </p>
@@ -98,7 +97,7 @@ export default function AboutPage() {
                   "Continuous sprint previews",
                   "Production-grade test coverage",
                 ].map((item) => (
-                  <div key={item} className="flex items-center gap-2.5 text-[14px] text-brand-charcoal font-medium">
+                  <div key={item} className="flex items-center gap-2.5 text-sm text-slate-800 font-medium">
                     <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
                     <span>{item}</span>
                   </div>
@@ -106,91 +105,67 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Metrics Panel */}
+            {/* Metrics Grid */}
             <div className="grid grid-cols-2 gap-4">
               {milestones.map((item) => (
                 <div
                   key={item.metric}
-                  className="rounded-2xl border border-slate-100 bg-[#F8FAFD] p-6 text-center sm:text-left hover:border-blue-100 transition"
+                  className="rounded-2xl border border-slate-200/80 bg-slate-50/60 p-6 text-center sm:text-left hover:border-blue-200 transition"
                 >
                   <div className="font-display text-3xl sm:text-4xl font-bold text-brand-blue tracking-tight">
                     {item.metric}
                   </div>
-                  <div className="mt-2 text-[13px] font-medium text-brand-slate leading-snug">
+                  <div className="mt-2 text-xs font-medium text-slate-600 leading-snug">
                     {item.label}
                   </div>
                 </div>
               ))}
             </div>
           </div>
-        </section>
+        </div>
+      </div>
 
-        {/* Core Values */}
-        <section className="py-20 px-6 lg:px-12 bg-[#F8FAFD] border-t border-slate-100">
-          <div className="mx-auto max-w-[1080px]">
-            <div className="text-center max-w-2xl mx-auto mb-16">
-              <div className="text-[12px] font-semibold uppercase tracking-wider text-brand-blue mb-2">
-                Core Principles
-              </div>
-              <h2 className="font-display text-3xl sm:text-4xl font-semibold text-brand-charcoal tracking-tight">
-                Standards that shape our engineering culture.
-              </h2>
-              <p className="mt-4 text-[15px] text-brand-slate">
-                We measure our success by the uptime, speed, and business growth of the platforms we deliver.
-              </p>
+      {/* Core Values Island */}
+      <div className="mx-auto max-w-[1140px]">
+        <div className="bg-white rounded-[32px] shadow-sm ring-1 ring-slate-900/5 p-8 sm:p-12 lg:p-14">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <div className="text-xs font-semibold uppercase tracking-wider text-brand-blue mb-2.5">
+              Core Principles
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {values.map((v) => {
-                const Icon = v.icon;
-                return (
-                  <div
-                    key={v.title}
-                    className="rounded-2xl border border-slate-200/80 bg-white p-8 shadow-sm hover:border-blue-200 transition"
-                  >
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-brand-blue mb-6">
-                      <Icon className="h-6 w-6" />
-                    </div>
-                    <h3 className="text-[18px] font-semibold text-brand-charcoal mb-3">
-                      {v.title}
-                    </h3>
-                    <p className="text-[14px] text-brand-slate leading-relaxed">
-                      {v.description}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* Call to Action Banner */}
-        <section className="py-16 px-6 lg:px-12 bg-white border-t border-slate-100 text-center">
-          <div className="mx-auto max-w-2xl">
-            <h2 className="font-display text-2xl sm:text-3xl font-semibold text-brand-charcoal">
-              Have a project in mind? Let&apos;s build it together.
+            <h2 className="text-3xl font-bold text-slate-900 tracking-tight">
+              Standards that shape our engineering culture.
             </h2>
-            <p className="mt-3 text-[15px] text-brand-slate">
-              Book a 30-minute discovery session with our senior engineers to review your technical scope, architecture, and timeline.
+            <p className="mt-3 text-base text-slate-600">
+              We measure our success by the uptime, speed, and business growth of the platforms we deliver.
             </p>
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-blue px-7 py-3 text-[14px] font-medium text-white shadow-md shadow-blue-500/20 transition hover:bg-blue-600 min-h-[44px]"
-              >
-                <span>Initiate Your Inquiry</span>
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link
-                href="/services"
-                className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-7 py-3 text-[14px] font-medium text-brand-charcoal transition hover:bg-slate-50 min-h-[44px]"
-              >
-                <span>Explore Capabilities</span>
-              </Link>
-            </div>
           </div>
-        </section>
 
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {values.map((v) => {
+              const Icon = v.icon;
+              return (
+                <div
+                  key={v.title}
+                  className="rounded-2xl border border-slate-200/80 bg-slate-50/50 p-8 shadow-2xs hover:border-blue-200 transition"
+                >
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-brand-blue mb-5">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-2">
+                    {v.title}
+                  </h3>
+                  <p className="text-sm text-slate-600 leading-relaxed">
+                    {v.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* Footer Island */}
+      <div className="mx-auto max-w-[1140px] pb-6">
         <Footer />
       </div>
     </main>

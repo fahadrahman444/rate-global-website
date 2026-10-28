@@ -15,51 +15,50 @@ export default function PrivacyPolicyPage() {
   const lastUpdated = "October 28, 2026";
 
   return (
-    <main className="py-6 sm:py-10 px-3 sm:px-6">
-      <div className="mx-auto max-w-[1200px] overflow-hidden rounded-[28px] bg-white shadow-2xl shadow-slate-300/60 border border-slate-200/80">
-        
-        {/* Navigation Bar */}
-        <div className="pt-4 px-6 lg:px-10">
+    <main className="min-h-screen bg-slate-50/70 py-4 sm:py-8 px-3 sm:px-6 space-y-12">
+      {/* Header Island */}
+      <div className="mx-auto max-w-[1140px]">
+        <div className="bg-white rounded-[32px] shadow-sm ring-1 ring-slate-900/5 pt-6 pb-4 overflow-hidden relative">
           <Navbar />
+          <SubpageHeader
+            currentLabel="Privacy Policy"
+            badge="Legal & Data Protection"
+            icon={Lock}
+            title="Privacy Policy & Data Safeguards"
+            description={`Effective Date: ${lastUpdated}. We adhere to strict data minimization, TLS 1.3 encryption, and GDPR/CCPA consumer protections.`}
+          />
         </div>
+      </div>
 
-        {/* Distinct Subpage Header with Breadcrumbs */}
-        <SubpageHeader
-          currentLabel="Privacy Policy"
-          badge="Legal & Data Protection"
-          icon={Lock}
-          title="Privacy Policy & Data Safeguards"
-          description={`Effective Date: ${lastUpdated}. We adhere to strict data minimization, TLS 1.3 encryption, and GDPR/CCPA consumer protections.`}
-        />
-
-        {/* Content Body */}
-        <div className="py-16 px-6 lg:px-12 bg-white">
-          <div className="mx-auto max-w-[780px] prose prose-slate text-[15px] leading-relaxed text-brand-slate space-y-8">
+      {/* Content Island */}
+      <div className="mx-auto max-w-[1140px]">
+        <div className="bg-white rounded-[32px] shadow-sm ring-1 ring-slate-900/5 p-8 sm:p-12 lg:p-14">
+          <div className="mx-auto max-w-[780px] prose prose-slate text-[15px] leading-relaxed text-slate-600 space-y-8">
             <section>
-              <h2 className="text-[20px] font-semibold text-brand-charcoal mb-3">
+              <h2 className="text-[20px] font-semibold text-slate-900 mb-3">
                 1. Overview and Scope
               </h2>
               <p>
-                Rate Global (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your personal data and respecting your privacy. This Privacy Policy details our practices concerning data collection, usage, and safeguarding when you interact with our website (<span className="text-brand-charcoal font-medium">rateglobal.com</span>) or submit project inquiries.
+                Rate Global (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your personal data and respecting your privacy. This Privacy Policy details our practices concerning data collection, usage, and safeguarding when you interact with our website (<span className="text-slate-900 font-medium">rateglobal.com</span>) or submit project inquiries.
               </p>
             </section>
 
             <section>
-              <h2 className="text-[20px] font-semibold text-brand-charcoal mb-3">
+              <h2 className="text-[20px] font-semibold text-slate-900 mb-3">
                 2. Information We Collect
               </h2>
               <p>
                 We only collect information that you knowingly and voluntarily provide to us when communicating or requesting service estimates:
               </p>
               <ul className="list-disc pl-5 mt-2 space-y-1.5">
-                <li><strong className="text-brand-charcoal">Contact Details:</strong> Your full name and business email address.</li>
-                <li><strong className="text-brand-charcoal">Project Details:</strong> Requested service categories, estimated budget ranges, and project descriptions submitted via our contact forms.</li>
-                <li><strong className="text-brand-charcoal">Technical Logs:</strong> Standard web server telemetry (IP address, browser type, referral URLs, access timestamps) used strictly for security monitoring and fraud prevention.</li>
+                <li><strong className="text-slate-900">Contact Details:</strong> Your full name and business email address.</li>
+                <li><strong className="text-slate-900">Project Details:</strong> Requested service categories, estimated budget ranges, and project descriptions submitted via our contact forms.</li>
+                <li><strong className="text-slate-900">Technical Logs:</strong> Standard web server telemetry (IP address, browser type, referral URLs, access timestamps) used strictly for security monitoring and fraud prevention.</li>
               </ul>
             </section>
 
             <section>
-              <h2 className="text-[20px] font-semibold text-brand-charcoal mb-3">
+              <h2 className="text-[20px] font-semibold text-slate-900 mb-3">
                 3. Purpose of Data Processing
               </h2>
               <p>We process your information solely to:</p>
@@ -69,13 +68,13 @@ export default function PrivacyPolicyPage() {
                 <li>Maintain the security, integrity, and performance of our web infrastructure.</li>
                 <li>Comply with legal obligations and protect intellectual property rights.</li>
               </ul>
-              <p className="mt-2 font-medium text-brand-charcoal">
+              <p className="mt-2 font-medium text-slate-900">
                 We do not sell, rent, monetize, or trade your personal data to third parties under any circumstances.
               </p>
             </section>
 
             <section>
-              <h2 className="text-[20px] font-semibold text-brand-charcoal mb-3">
+              <h2 className="text-[20px] font-semibold text-slate-900 mb-3">
                 4. Data Security and Retention
               </h2>
               <p>
@@ -84,7 +83,7 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section>
-              <h2 className="text-[20px] font-semibold text-brand-charcoal mb-3">
+              <h2 className="text-[20px] font-semibold text-slate-900 mb-3">
                 5. Cookies and Tracking
               </h2>
               <p>
@@ -93,7 +92,7 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section>
-              <h2 className="text-[20px] font-semibold text-brand-charcoal mb-3">
+              <h2 className="text-[20px] font-semibold text-slate-900 mb-3">
                 6. Your Rights
               </h2>
               <p>
@@ -108,15 +107,15 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section className="pt-4 border-t border-slate-100">
-              <h2 className="text-[20px] font-semibold text-brand-charcoal mb-3">
+              <h2 className="text-[20px] font-semibold text-slate-900 mb-3">
                 7. Contact Our Privacy Team
               </h2>
               <p>
                 If you have questions, privacy requests, or wish to exercise your rights, please reach out to us at:
               </p>
-              <div className="mt-3 p-4 rounded-xl bg-[#F8FAFD] border border-slate-200/80 text-[14px]">
-                <div className="font-semibold text-brand-charcoal">Rate Global Privacy Operations</div>
-                <div className="text-brand-slate">Email: <a href="mailto:privacy@rateglobal.com" className="text-brand-blue hover:underline">privacy@rateglobal.com</a></div>
+              <div className="mt-3 p-4 rounded-xl bg-slate-50 border border-slate-200/80 text-[14px]">
+                <div className="font-semibold text-slate-900">Rate Global Privacy Operations</div>
+                <div className="text-slate-600">Email: <a href="mailto:privacy@rateglobal.com" className="text-brand-blue hover:underline">privacy@rateglobal.com</a></div>
               </div>
             </section>
 
@@ -131,7 +130,10 @@ export default function PrivacyPolicyPage() {
             </div>
           </div>
         </div>
+      </div>
 
+      {/* Footer Island */}
+      <div className="mx-auto max-w-[1140px] pb-6">
         <Footer />
       </div>
     </main>
