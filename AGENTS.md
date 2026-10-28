@@ -1,10 +1,19 @@
 # AGENTS.md — Rate Global Website
 
-## 1. Project Identity
+## 1. Project Identity & Confirmed Tech Stack
 
 - **Project:** Rate Global Company Profile Website
 - **Repository:** `rate-global-website`
 - **Purpose:** Build a professional, responsive company website that showcases Rate Global's web development services, technical expertise, portfolio, and business contact options.
+- **Approved Tech Stack:**
+  - **Framework:** Next.js (App Router)
+  - **UI Library:** React
+  - **Language:** TypeScript
+  - **Styling:** Tailwind CSS
+  - **Animations:** Framer Motion
+
+> [!IMPORTANT]
+> **Strict Execution Gate:** Do NOT scaffold, build, or implement any code, features, or project structures until the user explicitly gives permission to start. Always plan, inspect, or propose first and await direct authorization before executing.
 
 The website must communicate credibility, technical competence, and business value while generating qualified project inquiries.
 
