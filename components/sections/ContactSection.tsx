@@ -74,8 +74,8 @@ export function ContactSection() {
           
           {/* Left Column: Context & Trust Signals */}
           <div className="lg:col-span-5">
-            <div className="text-[12.5px] font-semibold uppercase tracking-wider text-brand-blue mb-2.5">
-              Let&apos;s Build Together
+            <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/80 bg-blue-50/80 px-3.5 py-1 text-[11.5px] font-semibold uppercase tracking-wider text-brand-blue mb-3">
+              <span>04 // Direct Inquiry &amp; Scoping</span>
             </div>
             <h2 className="font-display text-[36px] sm:text-[44px] font-bold text-brand-charcoal tracking-tight leading-[1.15] mb-5">
               Start your project with a senior technical team.
