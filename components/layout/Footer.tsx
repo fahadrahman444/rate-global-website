@@ -16,8 +16,8 @@ export function Footer() {
           <Link href="/services" className="transition hover:text-brand-charcoal">
             Services
           </Link>
-          <Link href="/#work" className="transition hover:text-brand-charcoal">
-            Portfolio
+          <Link href="/work" className="transition hover:text-brand-charcoal">
+            Our Work
           </Link>
           <Link href="/about" className="transition hover:text-brand-charcoal">
             About Us

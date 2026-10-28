@@ -31,8 +31,8 @@ export default function HomePage() {
         {/* Core Services Section */}
         <ServicesPreview />
 
-        {/* Selected Portfolio Case Studies */}
-        <PortfolioSection />
+        {/* Selected Portfolio Case Studies (Teaser with Pathway) */}
+        <PortfolioSection maxItems={2} />
 
         {/* 4-Step Engineering Delivery Process */}
         <ProcessSection />

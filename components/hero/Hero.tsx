@@ -35,7 +35,7 @@ export function Hero() {
 
               {/* Secondary Outlined Glass Pill */}
               <Link
-                href="#work"
+                href="/work"
                 className="inline-flex items-center justify-center gap-1.5 rounded-full border border-brand-charcoal bg-white/60 hover:bg-white px-5 py-2 text-[13px] font-medium text-brand-charcoal backdrop-blur-sm transition-all min-h-[44px]"
               >
                 <span>See Our Impact</span>

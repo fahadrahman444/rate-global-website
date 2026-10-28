@@ -11,7 +11,7 @@ export function Navbar() {
 
   const navLinks = [
     { href: "/services", label: "Services", active: pathname === "/services" },
-    { href: "/#work", label: "Our Work", active: false },
+    { href: "/work", label: "Our Work", active: pathname === "/work" },
     { href: "/about", label: "About Us", active: pathname === "/about" },
     { href: "/contact", label: "Contact", active: pathname === "/contact" },
   ];
