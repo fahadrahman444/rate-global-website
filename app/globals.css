@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-canvas: #FFFFFF;
+  --text-primary: #111827;
+  --text-secondary: #5F6D7E;
+  --brand-blue: #1A73E8;
+}
+
+body {
+  background-color: #EEF2F6;
+  color: var(--text-primary);
+  font-family: var(--font-inter), sans-serif;
+  overflow-x: hidden;
+}
+
+/* Atmospheric sky-blue canvas */
+.hero-canvas {
+  background: radial-gradient(circle at 82% 38%, #C5DCF8 0%, #DCEBFC 35%, #F0F6FD 65%, #FFFFFF 90%);
+}
+
+/* Architectural grid lines */
+.hero-grid {
+  background-image: 
+    linear-gradient(to right, rgba(205, 222, 245, 0.42) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(205, 222, 245, 0.42) 1px, transparent 1px);
+  background-size: 52px 52px;
+}
+
+/* Top-left dot matrix texture for glass cards */
+.card-dots {
+  background-image: radial-gradient(#9BB0CA 1.2px, transparent 1.2px);
+  background-size: 9px 9px;
+  mask-image: radial-gradient(circle at top left, black, transparent 80%);
+  -webkit-mask-image: radial-gradient(circle at top left, black, transparent 80%);
+}
+
+/* Authentic frosted glass surface */
+.glass-service-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.90) 50%, rgba(224, 238, 255, 0.85) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 24px 50px -12px rgba(28, 56, 102, 0.09), inset 0 1px 1px #FFFFFF;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}

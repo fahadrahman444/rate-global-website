@@ -1,0 +1,150 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
+import { ShieldCheck, ArrowLeft, Lock } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy — Rate Global",
+  description:
+    "Learn about how Rate Global collects, uses, and safeguards information collected through our website and inquiry channels.",
+};
+
+export default function PrivacyPolicyPage() {
+  const lastUpdated = "October 28, 2026";
+
+  return (
+    <main className="py-6 sm:py-10 px-3 sm:px-6">
+      <div className="mx-auto max-w-[1200px] overflow-hidden rounded-[28px] bg-white shadow-2xl shadow-slate-300/60 border border-slate-200/80">
+        
+        {/* Header Canvas */}
+        <div className="hero-canvas relative overflow-hidden pt-6 pb-16 lg:pb-20 border-b border-slate-100">
+          <div
+            className="hero-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_92%_85%_at_50%_45%,#000_70%,transparent_100%)]"
+            aria-hidden="true"
+          />
+
+          <div className="relative z-10 mx-auto max-w-[1080px] px-6 lg:px-10">
+            <Navbar />
+
+            {/* Header Content */}
+            <div className="pt-16 pb-6 text-center max-w-2xl mx-auto">
+              <div className="inline-flex items-center gap-2 rounded-full border border-blue-200/60 bg-blue-50/80 px-3.5 py-1 text-[12px] font-medium text-brand-blue mb-6">
+                <Lock className="h-3.5 w-3.5" />
+                <span>Privacy &amp; Data Protection</span>
+              </div>
+              <h1 className="font-display text-3xl sm:text-4xl font-semibold tracking-tight text-brand-charcoal">
+                Privacy Policy
+              </h1>
+              <p className="mt-3 text-[14px] text-brand-slate">
+                Effective date: {lastUpdated}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Content Body */}
+        <div className="py-16 px-6 lg:px-12 bg-white">
+          <div className="mx-auto max-w-[780px] prose prose-slate text-[15px] leading-relaxed text-brand-slate space-y-8">
+            <section>
+              <h2 className="text-[20px] font-semibold text-brand-charcoal mb-3">
+                1. Overview and Scope
+              </h2>
+              <p>
+                Rate Global (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your personal data and respecting your privacy. This Privacy Policy details our practices concerning data collection, usage, and safeguarding when you interact with our website (<span className="text-brand-charcoal font-medium">rateglobal.com</span>) or submit project inquiries.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-[20px] font-semibold text-brand-charcoal mb-3">
+                2. Information We Collect
+              </h2>
+              <p>
+                We only collect information that you knowingly and voluntarily provide to us when communicating or requesting service estimates:
+              </p>
+              <ul className="list-disc pl-5 mt-2 space-y-1.5">
+                <li><strong className="text-brand-charcoal">Contact Details:</strong> Your full name and business email address.</li>
+                <li><strong className="text-brand-charcoal">Project Details:</strong> Requested service categories, estimated budget ranges, and project descriptions submitted via our contact forms.</li>
+                <li><strong className="text-brand-charcoal">Technical Logs:</strong> Standard web server telemetry (IP address, browser type, referral URLs, access timestamps) used strictly for security monitoring and fraud prevention.</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2 className="text-[20px] font-semibold text-brand-charcoal mb-3">
+                3. Purpose of Data Processing
+              </h2>
+              <p>We process your information solely to:</p>
+              <ul className="list-disc pl-5 mt-2 space-y-1.5">
+                <li>Evaluate project requirements and deliver technical proposals.</li>
+                <li>Communicate directly regarding inquiries and schedule discovery sessions.</li>
+                <li>Maintain the security, integrity, and performance of our web infrastructure.</li>
+                <li>Comply with legal obligations and protect intellectual property rights.</li>
+              </ul>
+              <p className="mt-2 font-medium text-brand-charcoal">
+                We do not sell, rent, monetize, or trade your personal data to third parties under any circumstances.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-[20px] font-semibold text-brand-charcoal mb-3">
+                4. Data Security and Retention
+              </h2>
+              <p>
+                All data transmission between your browser and our servers is secured using modern TLS 1.3 encryption. We retain inquiry information only for as long as necessary to fulfill project evaluation or comply with legal record-keeping obligations.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-[20px] font-semibold text-brand-charcoal mb-3">
+                5. Cookies and Tracking
+              </h2>
+              <p>
+                Our website utilizes minimal functional cookies required for core navigation, CSRF protection, and anonymous aggregate performance diagnostics. We do not employ third-party surveillance ad trackers.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-[20px] font-semibold text-brand-charcoal mb-3">
+                6. Your Rights
+              </h2>
+              <p>
+                Depending on your jurisdiction (including GDPR and CCPA protections), you retain the right to:
+              </p>
+              <ul className="list-disc pl-5 mt-2 space-y-1.5">
+                <li>Request access to copies of your personal data.</li>
+                <li>Request correction of inaccurate or incomplete records.</li>
+                <li>Request complete erasure (&quot;right to be forgotten&quot;) of your information.</li>
+                <li>Object to or restrict specific processing operations.</li>
+              </ul>
+            </section>
+
+            <section className="pt-4 border-t border-slate-100">
+              <h2 className="text-[20px] font-semibold text-brand-charcoal mb-3">
+                7. Contact Our Privacy Team
+              </h2>
+              <p>
+                If you have questions, privacy requests, or wish to exercise your rights, please reach out to us at:
+              </p>
+              <div className="mt-3 p-4 rounded-xl bg-[#F8FAFD] border border-slate-200/80 text-[14px]">
+                <div className="font-semibold text-brand-charcoal">Rate Global Privacy Operations</div>
+                <div className="text-brand-slate">Email: <a href="mailto:privacy@rateglobal.com" className="text-brand-blue hover:underline">privacy@rateglobal.com</a></div>
+              </div>
+            </section>
+
+            <div className="pt-8">
+              <Link
+                href="/"
+                className="inline-flex items-center gap-2 text-[14px] font-medium text-brand-blue hover:text-blue-700 transition"
+              >
+                <ArrowLeft className="h-4 w-4" />
+                <span>Return to Homepage</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        <Footer />
+      </div>
+    </main>
+  );
+}

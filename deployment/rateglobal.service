@@ -1,0 +1,19 @@
+[Unit]
+Description=Rate Global Next.js Production Service
+After=network.target
+
+[Service]
+Type=simple
+User=fahad
+WorkingDirectory=/home/fahad/Desktop/rate-global-website
+Environment=NODE_ENV=production
+Environment=PORT=3000
+ExecStart=/usr/bin/npm run start
+Restart=always
+RestartSec=5
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=rate-global-website
+
+[Install]
+WantedBy=multi-user.target
